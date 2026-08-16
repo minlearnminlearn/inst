@@ -25,7 +25,7 @@ forcemaintainmode='0'                             # 0:all put in maintain,1,just
 
 export autoREPOMIRROR0=https://github.com/minlearnminlearn/inst222/raw/master
 export autoREPOMIRROR1=https://gitee.com/minlearnminlearn/inst222/raw/master
-export FORCEREPOMIRROR=''                         # force apply a fixed mirror/targetddurl selection to force override autoselectdebmirror results based on -t -m args given
+export FORCEREPOMIRROR=https://github.com/minlearnminlearn/inst222/raw/master                         # force apply a fixed mirror/targetddurl selection to force override autoselectdebmirror results based on -t -m args given
 export FORCEDEBMIRROR=''                          # force deb mirror, if not forced, will be deduced mainly based on REPOMIRROR
 export FORCERLSMIRROR=''                          # force rls mirror, if not forced, will be deduced mainly based on REPOMIRROR
 export tmpTARGETMODE='0'                          # 0:CURLDD INSTMODE ONLY 1:CLOUDDDINSTALL+BUILD MIXTURE,2,3,nc install mode,defaultly it sholudbe 0, 4 inplace dd mode for devdeskct(lxcct,or kvmct) or devdeskde, 9,ociinst mode,10,appinst mode
