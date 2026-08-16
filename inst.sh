@@ -1117,7 +1117,7 @@ dipartmanearlycommandstring="$([[ "$tmpINSTWITHMANUAL" == '1' ]] && echo "wget -
   # we meant to use live-installer but it is too complicated so we turn to parted
   # there is only grub-efi on arm64,shall we separate preseed?
   # we must put force1sthdname before forcenetcfgstr,because argpositiion 1,2,3,4 is always there(fixedly appear) but 5 not(if not forced,it dont occpy a pos),we pust fixed ones piorr in front
-  [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.iso ]] && { # tee -a $topdir/$remasteringdir/initramfs/preseed.cfg $topdir/$remasteringdir/initramfs_arm64/preseed.cfg > /dev/null <<EOF
+  [[ "$tmpTARGETMODE" == '0' && ( "$tmpTARGET" == *.iso || "$tmpTARGET" == *.iso ) ]] && { # tee -a $topdir/$remasteringdir/initramfs/preseed.cfg $topdir/$remasteringdir/initramfs_arm64/preseed.cfg > /dev/null <<EOF
 # must not place anna-install network-console here in preseed/early_command but instead in partman/early_command
 # in debian installer, some machine dhcp mode are not clever enough, so just force autonet 1 and 2 both static
 dipreseedearlycommandstring="$([[ "$tmpINSTWITHMANUAL" == '1' ]] && echo "screen -dmS reboot /sbin/reboot -d 300;" )screen -dmS vnc /bin/linuxvnc -t 1 -p $([[ "$tmpINSTVNCPORT" != '' ]] && echo "$tmpINSTVNCPORT" || echo "80" );screen -dmS diweb /usr/bin/perl /usr/share/debconf/diweb --port 8080"
