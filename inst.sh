@@ -2544,6 +2544,8 @@ case $tmpTARGET in
   /*|./*|*) [[ "$tmpTARGETMODE" == '5' ]] && { ABSOLUTE_PATH=$(readlink -f "$tmpTARGET");DIR_NAME=$(dirname "$ABSOLUTE_PATH");MOUNT_POINT=$(df "$tmpTARGET" | grep -v Filesystem | awk '{print $6}');[ -z "$MOUNT_POINT" ] && exit;TARGETDDURL=${DIR_NAME#$MOUNT_POINT};UNZIP="$([[ ${tmpTARGET##*.} == 'gz' ]] && echo 1;[[ ${tmpTARGET##*.} == 'xz' ]] && echo 2)"; }
     [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.iso ]] && { case "$tmpTARGET" in *windows_10*) BYOSHINT=win10;; *windows_11*) BYOSHINT=win11;; *windows_server_2008_r2*) BYOSHINT=win2k8R2;; *windows_server_2008*) BYOSHINT=win2k8;; *windows_server_2012_r2*) BYOSHINT=win2k12R2;; *windows_server_2012*) BYOSHINT=win2k12;; *windows_server_2016*) BYOSHINT=win2k16;; *windows_server_2019*) BYOSHINT=win2k19;; *windows_server_2022*) BYOSHINT=win2k22;; *windows_server_2025*) BYOSHINT=win2k25;; *win*) echo "Error: not a offical windows iso str"; exit 1;; esac; }
     [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.iso ]] && TARGETDDURL=$tmpTARGET && CheckTargeturl $TARGETDDURL
+    [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.dmg ]] && BYOSHINT=osx12
+    [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.dmg ]] && TARGETDDURL=$tmpTARGET && CheckTargeturl $TARGETDDURL
     # wedont check "$tmpTARGETMODE" == '1,2,5'
     [[ "$tmpTARGETMODE" != '1' && "$tmpTARGETMODE" != '2' && "$tmpTARGETMODE" != '5' && "$tmpTARGET" != *.iso ]] && TARGETDDURL=$tmpTARGET && CheckTargeturl $TARGETDDURL ;;
 esac
