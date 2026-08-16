@@ -23,8 +23,8 @@
 
 forcemaintainmode='0'                             # 0:all put in maintain,1,just devdeskos in maintain
 
-export autoREPOMIRROR0=https://github.com/minlearn/inst/raw/master
-export autoREPOMIRROR1=https://gitee.com/minlearn/inst/raw/master
+export autoREPOMIRROR0=https://github.com/minlearnminlearn/inst222/raw/master
+export autoREPOMIRROR1=https://gitee.com/minlearnminlearn/inst222/raw/master
 export FORCEREPOMIRROR=''                         # force apply a fixed mirror/targetddurl selection to force override autoselectdebmirror results based on -t -m args given
 export FORCEDEBMIRROR=''                          # force deb mirror, if not forced, will be deduced mainly based on REPOMIRROR
 export FORCERLSMIRROR=''                          # force rls mirror, if not forced, will be deduced mainly based on REPOMIRROR
