@@ -2547,7 +2547,7 @@ case $tmpTARGET in
     [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.dmg ]] && BYOSHINT=osx12
     [[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" == *.dmg ]] && TARGETDDURL=$tmpTARGET && CheckTargeturl $TARGETDDURL
     # wedont check "$tmpTARGETMODE" == '1,2,5'
-    [[ "$tmpTARGETMODE" != '1' && "$tmpTARGETMODE" != '2' && "$tmpTARGETMODE" != '5' && "$tmpTARGET" != *.iso ]] && TARGETDDURL=$tmpTARGET && CheckTargeturl $TARGETDDURL ;;
+    [[ "$tmpTARGETMODE" != '1' && "$tmpTARGETMODE" != '2' && "$tmpTARGETMODE" != '5' && "$tmpTARGET" != *.iso && "$tmpTARGET" != *.dmg ]] && TARGETDDURL=$tmpTARGET && CheckTargeturl $TARGETDDURL ;;
 esac
 
 sleep 2
