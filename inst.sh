@@ -382,6 +382,7 @@ function CheckTargeturl(){
       # github tricks,cause it has raw word in its typecheck info
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'github' ]] && UNZIP='1' && sleep 3 && echo -en "[ \033[32m github \033[0m ]";
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'raw' ]] && UNZIP='0' && sleep 3 && echo -en "[ \033[32m raw \033[0m ]";
+      [[ "$IMGTYPECHECKPASS_DRTREF" == 'application/x-apple-diskimage' ]] && UNZIP='0' && sleep 3 && echo -en "[ \033[32m dmg \033[0m ]";
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'application/x-iso9660-image' ]] && UNZIP='0' && sleep 3 && echo -en "[ \033[32m iso \033[0m ]";
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'application/gzip' ]] && UNZIP='1' && sleep 3 && echo -en "[ \033[32m gzip \033[0m ]";
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'application/x-gzip' ]] && UNZIP='1' && sleep 3 && echo -en "[ \033[32m x-gzip \033[0m ]";
