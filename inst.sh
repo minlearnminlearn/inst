@@ -378,7 +378,7 @@ function CheckTargeturl(){
     [[ "$tmpTARGETMODE" == '0' && "$tmpBUILD" != '1' ]] && [[ "$tmpTARGET" != "devdeskos" && "$tmpTARGET" != "debian10r" ]] && [[ "$IMGTYPECHECK" == '200' || "$IMGTYPECHECK" == '302' ]] && {
       # begin pass1:check imagetype
       # sometimes one file could contain both gzip and application/x-xz strings, only the application/x-xz effects the real mimetype, so we cant just rely on gzip str
-      IMGTYPECHECKPASS_DRTREF="$(echo "$IMGHEADERCHECK"|grep -E -o 'github|raw|qcow2|application/gzip|application/x-gzip|application/x-xz|zstd|application/x-iso9660-image'|head -n 1)";
+      IMGTYPECHECKPASS_DRTREF="$(echo "$IMGHEADERCHECK"|grep -E -o 'github|raw|qcow2|application/gzip|application/x-gzip|application/x-xz|zstd|application/x-iso9660-image|application/x-apple-diskimage'|head -n 1)";
       # github tricks,cause it has raw word in its typecheck info
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'github' ]] && UNZIP='1' && sleep 3 && echo -en "[ \033[32m github \033[0m ]";
       [[ "$IMGTYPECHECKPASS_DRTREF" == 'raw' ]] && UNZIP='0' && sleep 3 && echo -en "[ \033[32m raw \033[0m ]";
