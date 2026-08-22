@@ -263,13 +263,7 @@ EOF
     7z x p4/down/EFI-${targetbootinfo}.7z -op4/tmpinstall/boot;mv p4/tmpinstall/boot/EFI/OC p4/tmpinstall/boot;rm -rf p4/tmpinstall/boot/EFI
     # override config.plist,for testing efi only
     cp -f p4/down/config.plist p4/tmpinstall/boot/OC/config.plist
-    sed -i \
-  -e '/<key>ScanPolicy<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>590595</integer>|' \
-  -e '/<key>PickerMode<\/key>/,/<\/string>/ s|<string>.*</string>|<string>Builtin</string>|' \
-  -e '/<key>Timeout<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>5</integer>|' \  
-  -e '/<key>Target<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>67</integer>|' \
-  -e '/<key>DisplayLevel<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>2147483714</integer>|' \
-  p4/tmpinstall/boot/OC/config.plist
+    sed -e '/<key>ScanPolicy<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>590595</integer>|' -e '/<key>PickerMode<\/key>/,/<\/string>/ s|<string>.*</string>|<string>Builtin</string>|' -e '/<key>Timeout<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>5</integer>|' -e '/<key>Target<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>67</integer>|' -e '/<key>DisplayLevel<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>2147483714</integer>|'  -i config-default.plist
 
     # finished p4/
     find p4/extracted/Install\ macOS* -mindepth 1 -maxdepth 1 -exec mv {} p4/ \;
