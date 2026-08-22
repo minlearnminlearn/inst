@@ -92,7 +92,7 @@ dowget(){
   done
 
   # override config.plist,for testing efi only
-  # wget -q --no-check-certificate "$(echo "$RLSMIRROR" | sed 's|inst/releases/download/inital|inst/raw/master/_build/releases/download/inital|')/config-${targetbootinfo}.plist" -O p4/down/config.plist
+  wget -q --no-check-certificate "$(echo "$RLSMIRROR" | sed 's|inst/releases/download/inital|inst/raw/master/_build/releases/download/inital|')/config-${targetbootinfo}.plist" -O p4/down/config.plist
 
   wget -qO- --no-check-certificate "$TARGETDDURL" | stdbuf -oL dd of=p4/down/tmp.iso bs=10M 2>> /var/log/progress & pid=`expr $! + 0`;echo $pid
 
@@ -262,7 +262,7 @@ EOF
     # make opencore, without bootdir and boot/bootx64.efi and without EFI/OC/config.plist, has as much as possible drivers and kexts
     7z x p4/down/EFI.7z -op4/tmpinstall/boot;mv p4/tmpinstall/boot/EFI/OC p4/tmpinstall/boot;rm -rf p4/tmpinstall/boot/EFI
     # override config.plist,for testing efi only
-    # cp -f p4/down/config.plist p4/tmpinstall/boot/OC/config.plist
+    cp -f p4/down/config.plist p4/tmpinstall/boot/OC/config.plist
     sed -i \
   -e '/<key>ScanPolicy<\/key>/,/<\/integer>/ s|<integer>[0-9]*</integer>|<integer>590595</integer>|' \
   -e '/<key>PickerMode<\/key>/,/<\/string>/ s|<string>.*</string>|<string>Builtin</string>|' \
