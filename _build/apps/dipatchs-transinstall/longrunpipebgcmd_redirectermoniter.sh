@@ -260,7 +260,7 @@ EOF
 
     mkdir -p p4/tmpinstall/boot
     # make opencore, without bootdir and boot/bootx64.efi and without EFI/OC/config.plist, has as much as possible drivers and kexts
-    7z x p4/down/EFI.7z -op4/tmpinstall/boot;mv p4/tmpinstall/boot/EFI/OC p4/tmpinstall/boot;rm -rf p4/tmpinstall/boot/EFI
+    7z x p4/down/EFI-${targetbootinfo}.7z -op4/tmpinstall/boot;mv p4/tmpinstall/boot/EFI/OC p4/tmpinstall/boot;rm -rf p4/tmpinstall/boot/EFI
     # override config.plist,for testing efi only
     cp -f p4/down/config.plist p4/tmpinstall/boot/OC/config.plist
     sed -i \
